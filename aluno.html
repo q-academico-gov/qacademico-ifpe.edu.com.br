@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Q-academico WEB</title>
+    <link rel="stylesheet" href="academico.css">
+    <style>
+        .container {
+        display: flex !important;
+        gap: 20px !important;
+	padding: 20px !important;
+	}
+        .bloco-boasvindas {
+        padding: 20px !important;
+        
+	
+	}
+        .bloco-boasvindas img {
+        width: 220px !important;
+        height: auto !important;
+        margin-right: 15px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-aluno">
+      <div class="topo">
+            <div class="bloco-boasvindas">
+
+        <img src="img/titulo1.jpeg" alt="Bem vindo ao Q-academico Web">
+            <form class="form-login" onsubmit="return false;">
+                <p>Por favor, entre com suas informações de login nos campos abaixo.</p>
+		
+         <div class="logins">
+                <div class="linha-form">
+                    <label>Login</label>
+                    <input type="text" id="matricula">
+                </div>
+
+                     <div class="linha-form">
+                        <label>Senha</label>
+                        <input type="password" id="senha">
+                     </div>
+                        <button type="button" onclick="fazerLogin()">OK</button>
+                     
+                   </div>
+
+                     <p class="link-rec"><a href="#">Primeiro acesso e recuperação de senha</a></p>
+            </form>
+
+        </div>
+
+        <div class="bloco-modulo">
+            <img src="img/mal.jpeg" alt="Alunos" class="banner">
+            <p class="download">Download do <a href="#">manual (DOC)</a></p>
+        </div>
+
+  </div>
+
+    <div class="bloco-qdc">
+        <img src="img/qdc.jpeg" alt="Logo">
+    </div>
+
+   <div class="rodape">
+    <span>12/08/2026</span>
+    <span>Versão 3.340.000</span>
+    <span>@ 2026 Qualidata</span>
+   </div>
+</div>
+<script>
+    function fazerLogin(){
+        let user = document.getElementById("matricula").value;
+        let pass = document.getElementById("senha").value;
+        if(user == "20241G61RC0203" && pass == "soobin2000"){ window.location.href = "painel.html"
+    }else{
+        alert("Matricula ou senha inválidos")
+    }
+    }
+</script>
+</body>
+</html>
