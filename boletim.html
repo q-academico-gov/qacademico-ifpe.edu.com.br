@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Boletim - Q-Acadêmico Web</title>
@@ -12,289 +11,211 @@
 
     <style>
 
-        /* =========================================
-           APENAS O BOLETIM
-           Não altera os outros arquivos
-           ========================================= */
+        /* ============================= */
+        /* BOLETIM */
+        /* ============================= */
 
         body {
             background: #F5F1E8;
-            margin: 0;
-            padding: 0;
+        }
+
+        .container-aluno {
+            width: 520px;
+            max-width: 95%;
+            min-height: auto;
+            margin: 20px auto;
+            padding: 10px;
+            background: #F5F1E8;
+            box-sizing: border-box;
+        }
+
+        .boletim {
+            width: 100%;
             font-family: Arial, Helvetica, sans-serif;
             color: #333;
         }
 
-        /* Mesma largura-base usada no restante do projeto */
-        .container-aluno {
-            width: 520px;
-            max-width: 90%;
-            min-height: auto;
-            margin: 20px auto;
-            padding: 10px;
-            box-sizing: border-box;
-            background: #F5F1E8;
-        }
-
-        /* =========================================
-           CABEÇALHO
-           ========================================= */
-
-        .boletim {
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .cabecalho-boletim {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        /*
-        COLOQUE SUA IMAGEM AQUI:
-
-        img/boletim.jpeg
-
-        Se quiser trocar, basta mudar o src.
-        */
-
-        .imagem-boletim {
-            width: 55px;
-            height: 55px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
+        /* CABEÇALHO */
 
         .titulo-boletim {
-            font-size: 24px;
-            font-weight: normal;
-            color: #6b624c;
-            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
         }
 
-        /* =========================================
-           TABELA
-           ========================================= */
+        .titulo-boletim img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .titulo-boletim h1 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: normal;
+            text-transform: uppercase;
+            color: #6f6445;
+        }
+
+        /* INFORMAÇÕES ACIMA DA TABELA */
+
+        .informacoes-boletim {
+            position: relative;
+            width: 100%;
+            margin-bottom: 12px;
+            font-size: 9px;
+        }
+
+        .identificacao {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .identificacao strong {
+            display: block;
+            font-size: 12px;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .identificacao span {
+            font-size: 9px;
+        }
+
+        .filtros-boletim {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 8px;
+        }
+
+        .filtro {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .filtro select {
+            height: 18px;
+            font-size: 8px;
+            border: 1px solid #b9ad8c;
+            background: #eee9d9;
+            color: #333;
+        }
+
+        .botao-boletim {
+            height: 20px;
+            padding: 0 7px;
+            font-size: 8px;
+            border: 1px solid #b9ad8c;
+            background: #eee9d9;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* TABELA */
 
         .tabela-boletim {
             width: 100%;
             border-collapse: collapse;
-
-            /*
-            AUTO é importante:
-            a coluna tenta ter o tamanho necessário
-            para o maior texto dela.
-            */
-            table-layout: auto;
-
-            font-size: 6.5px;
-            color: #333;
+            table-layout: fixed;
+            font-size: 8px;
         }
 
-        /* Título da tabela */
-
-        .tabela-boletim thead tr:first-child th {
-            background: #d0d0d0;
-            font-size: 11px;
-            font-weight: bold;
-            text-align: center;
-
-            padding: 5px 2px;
-            height: 24px;
-
-            white-space: nowrap;
-        }
-
-        /* Cabeçalho das colunas */
-
-        .tabela-boletim thead tr:nth-child(2) th {
-            background: #d8d8d8;
-
-            font-size: 6.5px;
-            font-weight: bold;
-            text-align: center;
-
-            padding: 3px 1px;
-            height: 22px;
-
-            line-height: 7px;
-        }
-
-        /* =========================================
-           CÉLULAS
-           ========================================= */
-
+        .tabela-boletim th,
         .tabela-boletim td {
-            padding: 2px 2px;
-
-            height: 17px;
-
+            border: 1px solid #e8e8e8;
+            padding: 3px 2px;
+            line-height: 1.15;
             text-align: center;
             vertical-align: middle;
-
-            line-height: 8px;
-
-            /*
-            Permite que nomes grandes quebrem
-            dentro da própria célula.
-            */
             overflow-wrap: break-word;
-            word-break: normal;
         }
 
-        /* Primeira coluna: matéria */
+        /* CABEÇALHO PRINCIPAL DA TABELA */
 
+        .tabela-boletim thead tr:first-child th {
+            background: #d1d1d1;
+            font-size: 11px;
+            padding: 6px 3px;
+            color: #222;
+        }
+
+        /* CABEÇALHO DAS COLUNAS */
+
+        .tabela-boletim thead tr:nth-child(2) th {
+            background: #dcdcdc;
+            font-weight: bold;
+            color: #222;
+            padding: 4px 2px;
+        }
+
+        /* LINHAS ALTERNADAS */
+
+        .tabela-boletim tbody tr:nth-child(odd) td {
+            background: #e5e7e8;
+        }
+
+        .tabela-boletim tbody tr:nth-child(even) td {
+            background: #f8f8f8;
+        }
+
+        /* PRIMEIRA COLUNA */
+
+        .tabela-boletim th:first-child,
         .tabela-boletim td:first-child {
             text-align: left;
-
-            /*
-            A matéria pode ocupar mais espaço.
-            */
-            width: 18%;
-
-            /*
-            Permite quebra em nomes grandes.
-            */
-            white-space: normal;
         }
 
-        .tabela-boletim th:first-child {
-            width: 18%;
-            text-align: center;
-        }
+        /* LARGURA DAS COLUNAS */
 
-        /* CH */
+        .tabela-boletim th:nth-child(1),
+        .tabela-boletim td:nth-child(1) {
+            width: 16%;
+        }
 
         .tabela-boletim th:nth-child(2),
         .tabela-boletim td:nth-child(2) {
             width: 5%;
         }
 
-        /* TURMA */
-
         .tabela-boletim th:nth-child(3),
         .tabela-boletim td:nth-child(3) {
-            width: 17%;
-
-            white-space: normal;
+            width: 18%;
         }
-
-        /* FALTAS */
 
         .tabela-boletim th:nth-child(4),
         .tabela-boletim td:nth-child(4) {
             width: 6%;
         }
 
-        /* NOTAS */
-
-        .tabela-boletim th:nth-child(5),
-        .tabela-boletim td:nth-child(5),
-        .tabela-boletim th:nth-child(6),
-        .tabela-boletim td:nth-child(6),
-        .tabela-boletim th:nth-child(7),
-        .tabela-boletim td:nth-child(7),
-        .tabela-boletim th:nth-child(8),
-        .tabela-boletim td:nth-child(8),
-        .tabela-boletim th:nth-child(9),
-        .tabela-boletim td:nth-child(9),
-        .tabela-boletim th:nth-child(10),
-        .tabela-boletim td:nth-child(10),
-        .tabela-boletim th:nth-child(11),
-        .tabela-boletim td:nth-child(11),
-        .tabela-boletim th:nth-child(12),
-        .tabela-boletim td:nth-child(12),
-        .tabela-boletim th:nth-child(13),
-        .tabela-boletim td:nth-child(13) {
+        .tabela-boletim th:nth-child(n+5),
+        .tabela-boletim td:nth-child(n+5) {
             width: 5%;
         }
 
-        /* SITUAÇÃO */
-
-        .tabela-boletim th:nth-child(14),
-        .tabela-boletim td:nth-child(14) {
-            width: 8%;
-        }
-
-        /* =========================================
-           LINHAS ALTERNADAS
-           ========================================= */
-
-        .tabela-boletim tbody tr:nth-child(odd) {
-            background: #e1e3e4;
-        }
-
-        .tabela-boletim tbody tr:nth-child(even) {
-            background: #f8f8f8;
-        }
-
-        /* =========================================
-           RESULTADOS
-           ========================================= */
+        /* RESULTADOS */
 
         .resultado-boletim {
-            margin-top: 10px;
-            font-size: 7px;
-            color: #333;
-        }
-
-        /*
-        Coloca Média, Rendimento e Coeficiente
-        na mesma linha, igual à referência.
-        */
-
-        .resultado-boletim .linha-resultados {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 18px;
-            flex-wrap: nowrap;
+            gap: 8px 18px;
+            margin-top: 10px;
+            font-size: 8px;
         }
 
         .resultado-boletim p {
-            margin: 4px 0;
-            line-height: 9px;
+            margin: 0;
         }
 
-        .resultado-boletim strong {
-            font-weight: bold;
-        }
-
-        .resultado-boletim .parecer {
-            margin-top: 5px;
-        }
-
-
-        /* =========================================
-           CELULAR
-           ========================================= */
-
-        /*
-        Não transforma a tabela em lista.
-        Ela continua sendo uma tabela.
-        No celular ela fica pequena e o usuário
-        pode dar zoom, como no site original.
-        */
-
-        @media (max-width: 600px) {
-
-            .container-aluno {
-                width: 520px;
-                max-width: none;
-
-                /*
-                Mantém o tamanho original para
-                permitir zoom horizontal.
-                */
-                margin-left: 10px;
-                margin-right: 10px;
-            }
-
+        .resultado-boletim p:last-child {
+            flex-basis: 100%;
+            margin-top: 4px;
         }
 
     </style>
-
 </head>
 
 <body>
@@ -303,44 +224,75 @@
 
     <div class="boletim">
 
-        <!-- =====================================
-             CABEÇALHO DO BOLETIM
-             ===================================== -->
+        <!-- TÍTULO -->
+        <div class="titulo-boletim">
 
-        <div class="cabecalho-boletim">
+            <!-- COLOQUE AQUI A IMAGEM DO ÍCONE DO BOLETIM -->
+            <img src="img/boletim.jpeg" alt="Boletim">
 
-            <!-- TROQUE O SRC SE QUISER OUTRA IMAGEM -->
-            <img
-                src="img/boletim.jpeg"
-                alt="Boletim"
-                class="imagem-boletim"
-            >
-
-            <h1 class="titulo-boletim">
-                Boletim
-            </h1>
+            <h1>Boletim</h1>
 
         </div>
 
 
-        <!-- =====================================
-             TABELA
-             ===================================== -->
+        <!-- INFORMAÇÕES -->
+        <div class="informacoes-boletim">
+
+            <div class="identificacao">
+
+                <strong>BOLETA</strong>
+
+                <span>
+                    (20241G61RC0203) - Laura Pessoa da Cruz Barbosa - 2026/1
+                </span>
+
+            </div>
+
+
+            <div class="filtros-boletim">
+
+                <div class="filtro">
+                    <label>ANO:</label>
+
+                    <select>
+                        <option>2026</option>
+                    </select>
+                </div>
+
+
+                <div class="filtro">
+
+                    <label>PERÍODO:</label>
+
+                    <select>
+                        <option>1</option>
+                    </select>
+
+                </div>
+
+
+                <button class="botao-boletim">
+                    Exibir Boleto
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TABELA -->
 
         <table class="tabela-boletim">
 
             <thead>
 
                 <tr>
-
                     <th colspan="14">
                         Estrutura de Curso - 5Técnico Integrado Regular - Rc 2014.1 343
                     </th>
-
                 </tr>
 
                 <tr>
-
                     <th>Componente Curricular</th>
                     <th>CH</th>
                     <th>Turma</th>
@@ -355,7 +307,6 @@
                     <th>F</th>
                     <th>MF</th>
                     <th>Situação</th>
-
                 </tr>
 
             </thead>
@@ -363,599 +314,304 @@
 
             <tbody>
 
-
-                <!-- MATEMÁTICA IV -->
-
                 <tr>
-
                     <td>Matemática IV</td>
-
                     <td>54</td>
-
                     <td>343 - 2026I.A61RC.4V</td>
-
                     <td>0</td>
-
                     <td>2,5</td>
-
                     <td>5,00</td>
-
                     <td>0</td>
-
                     <td>,00</td>
-
                     <td>0</td>
-
                     <td>2,50</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>2,50</td>
-
                     <td>Prova Final</td>
-
                 </tr>
 
-
-                <!-- MATEMÁTICA II -->
-
                 <tr>
-
-                    <td>matemática II</td>
-
+                    <td>Matemática II</td>
                     <td>40,5</td>
-
                     <td>343 - 2026I.G61RC.3M</td>
-
                     <td>0</td>
-
                     <td>7,20</td>
-
                     <td>7,00</td>
-
                     <td>0</td>
-
                     <td>7,40</td>
-
                     <td>0</td>
-
                     <td>7,20</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>7,20</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- LÍNGUA PORTUGUESA V -->
-
                 <tr>
-
                     <td>Língua Portuguesa V</td>
-
                     <td>54</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>7,8</td>
-
                     <td>7,40</td>
-
                     <td>0</td>
-
                     <td>8,10</td>
-
                     <td>0</td>
-
                     <td>7,80</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>7,80</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- EDUCAÇÃO FÍSICA V -->
-
                 <tr>
-
                     <td>Educação Física V</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>9,5</td>
-
                     <td>10,00</td>
-
                     <td>0</td>
-
                     <td>9,00</td>
-
                     <td>0</td>
-
                     <td>9,50</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>9,50</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- HISTÓRIA V -->
-
                 <tr>
-
                     <td>História V</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>8,3</td>
-
                     <td>8,50</td>
-
                     <td>0</td>
-
                     <td>8,00</td>
-
                     <td>0</td>
-
                     <td>8,30</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>8,30</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- GEOGRAFIA V -->
-
                 <tr>
-
                     <td>Geografia V</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>6,9</td>
-
                     <td>7,00</td>
-
                     <td>0</td>
-
                     <td>6,80</td>
-
                     <td>0</td>
-
                     <td>6,90</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>6,90</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- FILOSOFIA III -->
-
                 <tr>
-
                     <td>Filosofia III</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>6,75</td>
-
                     <td>6,00</td>
-
                     <td>0</td>
-
                     <td>7,50</td>
-
                     <td>0</td>
-
                     <td>6,75</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>6,75</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- MATEMÁTICA V -->
-
                 <tr>
-
                     <td>Matemática V</td>
-
                     <td>54</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>6,15</td>
-
                     <td>6,00</td>
-
                     <td>0</td>
-
                     <td>6,30</td>
-
                     <td>0</td>
-
                     <td>6,15</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>6,15</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- QUÍMICA V -->
-
                 <tr>
-
                     <td>Química V</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>7,1</td>
-
                     <td>8,20</td>
-
                     <td>0</td>
-
                     <td>6,00</td>
-
                     <td>0</td>
-
                     <td>7,10</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>7,10</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- FÍSICA V -->
-
                 <tr>
-
                     <td>Física V</td>
-
                     <td>40,5</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>2,50</td>
-
                     <td>5,00</td>
-
                     <td>0</td>
-
                     <td>,00</td>
-
                     <td>0</td>
-
                     <td>2,50</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>2,50</td>
-
                     <td>Prova Final</td>
-
                 </tr>
 
-
-                <!-- BIOLOGIA V -->
-
                 <tr>
-
                     <td>Biologia V</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>6,70</td>
-
                     <td>6,40</td>
-
                     <td>0</td>
-
                     <td>7,00</td>
-
                     <td>0</td>
-
                     <td>6,70</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>6,70</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- INGLÊS III -->
-
                 <tr>
-
                     <td>Língua Estrangeira Moderna - Inglês III</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>10</td>
-
                     <td>10,00</td>
-
                     <td>0</td>
-
                     <td>10,00</td>
-
                     <td>0</td>
-
                     <td>10,00</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>10,00</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- ESPANHOL I -->
-
                 <tr>
-
                     <td>Língua Espanhola I</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>9,2</td>
-
                     <td>9,60</td>
-
                     <td>0</td>
-
                     <td>8,70</td>
-
                     <td>0</td>
-
                     <td>9,20</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>9,20</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- FUNDAMENTOS -->
-
                 <tr>
-
                     <td>Fundamentos de Atendimento Pré-hospitalar</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>9,5</td>
-
                     <td>9,00</td>
-
                     <td>0</td>
-
                     <td>10,00</td>
-
                     <td>0</td>
-
                     <td>9,50</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>9,50</td>
-
                     <td>Aprovado</td>
-
                 </tr>
 
-
-                <!-- PROGRAMAS -->
-
                 <tr>
-
                     <td>Programas de Treinamentos</td>
-
                     <td>67,5</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>9</td>
-
                     <td>9,00</td>
-
                     <td>0</td>
-
                     <td>9,00</td>
-
                     <td>0</td>
-
                     <td>9,00</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>9,00</td>
-
                     <td>Aprovado</td>
-
                 </tr>
-
-
-                <!-- SEGURANÇA -->
 
                 <tr>
-
                     <td>Segurança na Construção Naval e Operações Portuárias</td>
-
                     <td>27</td>
-
                     <td>343 - 2026I.G61RC.5M</td>
-
                     <td>0</td>
-
                     <td>9,5</td>
-
                     <td>10,00</td>
-
                     <td>0</td>
-
                     <td>9,00</td>
-
                     <td>0</td>
-
                     <td>9,50</td>
-
                     <td></td>
-
                     <td></td>
-
                     <td>9,50</td>
-
                     <td>Aprovado</td>
-
                 </tr>
-
 
             </tbody>
 
         </table>
 
 
-        <!-- =====================================
-             RESULTADOS
-             ===================================== -->
+        <!-- RESULTADOS -->
 
         <div class="resultado-boletim">
 
-            <div class="linha-resultados">
+            <p>
+                <strong>Média das disciplinas:</strong> 7,43
+            </p>
 
-                <p>
-                    <strong>Média das disciplinas:</strong> 7,43
-                </p>
+            <p>
+                <strong>Rendimento global:</strong> 0,00
+            </p>
 
-                <p>
-                    <strong>Rendimento global:</strong> 0,00
-                </p>
-
-                <p>
-                    <strong>Coeficiente de Rendimento:</strong>
-                </p>
-
-            </div>
+            <p>
+                <strong>Coeficiente de Rendimento:</strong>
+            </p>
 
             <p>
                 <strong>Situação:</strong> Matrícula
             </p>
 
-            <p class="parecer">
+            <p>
                 <strong>Parecer:</strong>
             </p>
 
