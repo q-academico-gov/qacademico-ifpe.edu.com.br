@@ -9,212 +9,214 @@
 
     <link rel="stylesheet" href="academico.css">
 
-    <style>
+</style>
+    body {
+    background: #F5F1E8;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
 
-        /* ============================= */
-        /* BOLETIM */
-        /* ============================= */
+.container-aluno {
+    width: 520px;
+    max-width: 95%;
+    min-height: auto;
+    margin: 10px auto;
+    padding: 8px;
+    background: #F5F1E8;
+    box-sizing: border-box;
+}
 
-        body {
-            background: #F5F1E8;
-        }
+.boletim {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
 
-        .container-aluno {
-            width: 520px;
-            max-width: 95%;
-            min-height: auto;
-            margin: 20px auto;
-            padding: 10px;
-            background: #F5F1E8;
-            box-sizing: border-box;
-        }
+/* =========================
+   CABEÇALHO
+   ========================= */
 
-        .boletim {
-            width: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #333;
-        }
+.titulo-boletim {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 8px;
+}
 
-        /* CABEÇALHO */
+.titulo-boletim img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
 
-        .titulo-boletim {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 18px;
-        }
+.titulo-boletim h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #6f6445;
+}
 
-        .titulo-boletim img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-        }
+/* =========================
+   INFORMAÇÕES
+   ========================= */
 
-        .titulo-boletim h1 {
-            margin: 0;
-            font-size: 30px;
-            font-weight: normal;
-            text-transform: uppercase;
-            color: #6f6445;
-        }
+.informacoes-boletim {
+    width: 100%;
+    margin-bottom: 7px;
+    font-size: 7px;
+}
 
-        /* INFORMAÇÕES ACIMA DA TABELA */
+.identificacao {
+    text-align: center;
+    margin-bottom: 6px;
+}
 
-        .informacoes-boletim {
-            position: relative;
-            width: 100%;
-            margin-bottom: 12px;
-            font-size: 9px;
-        }
+.identificacao strong {
+    display: block;
+    font-size: 9px;
+    margin-bottom: 2px;
+}
 
-        .identificacao {
-            text-align: center;
-            margin-bottom: 12px;
-        }
+.identificacao span {
+    font-size: 7px;
+}
 
-        .identificacao strong {
-            display: block;
-            font-size: 12px;
-            color: #222;
-            margin-bottom: 4px;
-        }
+.filtros-boletim {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 7px;
+}
 
-        .identificacao span {
-            font-size: 9px;
-        }
+.filtro {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
 
-        .filtros-boletim {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 8px;
-        }
+.filtro select {
+    height: 15px;
+    font-size: 7px;
+    padding: 0 2px;
+    border: 1px solid #b9ad8c;
+    background: #eee9d9;
+}
 
-        .filtro {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+.botao-boletim {
+    height: 16px;
+    padding: 0 5px;
+    font-size: 7px;
+    border: 1px solid #b9ad8c;
+    background: #eee9d9;
+}
 
-        .filtro select {
-            height: 18px;
-            font-size: 8px;
-            border: 1px solid #b9ad8c;
-            background: #eee9d9;
-            color: #333;
-        }
+/* =========================
+   TABELA
+   ========================= */
 
-        .botao-boletim {
-            height: 20px;
-            padding: 0 7px;
-            font-size: 8px;
-            border: 1px solid #b9ad8c;
-            background: #eee9d9;
-            color: #333;
-            cursor: pointer;
-        }
+.tabela-boletim {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 6px;
+}
 
-        /* TABELA */
+.tabela-boletim th,
+.tabela-boletim td {
+    border: 1px solid #dcdcdc;
+    padding: 1px 1px;
+    line-height: 7px;
+    text-align: center;
+    vertical-align: middle;
+    overflow-wrap: break-word;
+}
 
-        .tabela-boletim {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed;
-            font-size: 8px;
-        }
+/* título da tabela */
 
-        .tabela-boletim th,
-        .tabela-boletim td {
-            border: 1px solid #e8e8e8;
-            padding: 3px 2px;
-            line-height: 1.15;
-            text-align: center;
-            vertical-align: middle;
-            overflow-wrap: break-word;
-        }
+.tabela-boletim thead tr:first-child th {
+    background: #d1d1d1;
+    font-size: 8px;
+    padding: 3px 2px;
+    height: 16px;
+}
 
-        /* CABEÇALHO PRINCIPAL DA TABELA */
+/* cabeçalho */
 
-        .tabela-boletim thead tr:first-child th {
-            background: #d1d1d1;
-            font-size: 11px;
-            padding: 6px 3px;
-            color: #222;
-        }
+.tabela-boletim thead tr:nth-child(2) th {
+    background: #dcdcdc;
+    font-size: 6px;
+    padding: 2px 1px;
+    height: 15px;
+}
 
-        /* CABEÇALHO DAS COLUNAS */
+/* linhas */
 
-        .tabela-boletim thead tr:nth-child(2) th {
-            background: #dcdcdc;
-            font-weight: bold;
-            color: #222;
-            padding: 4px 2px;
-        }
+.tabela-boletim tbody tr:nth-child(odd) td {
+    background: #e5e7e8;
+}
 
-        /* LINHAS ALTERNADAS */
+.tabela-boletim tbody tr:nth-child(even) td {
+    background: #f8f8f8;
+}
 
-        .tabela-boletim tbody tr:nth-child(odd) td {
-            background: #e5e7e8;
-        }
+/* primeira coluna */
 
-        .tabela-boletim tbody tr:nth-child(even) td {
-            background: #f8f8f8;
-        }
+.tabela-boletim th:first-child,
+.tabela-boletim td:first-child {
+    text-align: left;
+}
 
-        /* PRIMEIRA COLUNA */
+/* larguras */
 
-        .tabela-boletim th:first-child,
-        .tabela-boletim td:first-child {
-            text-align: left;
-        }
+.tabela-boletim th:nth-child(1),
+.tabela-boletim td:nth-child(1) {
+    width: 16%;
+}
 
-        /* LARGURA DAS COLUNAS */
+.tabela-boletim th:nth-child(2),
+.tabela-boletim td:nth-child(2) {
+    width: 5%;
+}
 
-        .tabela-boletim th:nth-child(1),
-        .tabela-boletim td:nth-child(1) {
-            width: 16%;
-        }
+.tabela-boletim th:nth-child(3),
+.tabela-boletim td:nth-child(3) {
+    width: 18%;
+}
 
-        .tabela-boletim th:nth-child(2),
-        .tabela-boletim td:nth-child(2) {
-            width: 5%;
-        }
+.tabela-boletim th:nth-child(4),
+.tabela-boletim td:nth-child(4) {
+    width: 6%;
+}
 
-        .tabela-boletim th:nth-child(3),
-        .tabela-boletim td:nth-child(3) {
-            width: 18%;
-        }
+.tabela-boletim th:nth-child(n+5),
+.tabela-boletim td:nth-child(n+5) {
+    width: 5%;
+}
 
-        .tabela-boletim th:nth-child(4),
-        .tabela-boletim td:nth-child(4) {
-            width: 6%;
-        }
+/* =========================
+   RESULTADOS
+   ========================= */
 
-        .tabela-boletim th:nth-child(n+5),
-        .tabela-boletim td:nth-child(n+5) {
-            width: 5%;
-        }
+.resultado-boletim {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 12px;
+    margin-top: 6px;
+    font-size: 6.5px;
+}
 
-        /* RESULTADOS */
+.resultado-boletim p {
+    margin: 0;
+}
 
-        .resultado-boletim {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 8px 18px;
-            margin-top: 10px;
-            font-size: 8px;
-        }
-
-        .resultado-boletim p {
-            margin: 0;
-        }
-
-        .resultado-boletim p:last-child {
-            flex-basis: 100%;
-            margin-top: 4px;
-        }
-
+.resultado-boletim p:last-child {
+    flex-basis: 100%;
+    margin-top: 2px;
+}
     </style>
 </head>
 
